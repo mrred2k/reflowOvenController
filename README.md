@@ -26,25 +26,25 @@ Reflow Oven Controller
 
 (c) 2014 Karl Pitrich <karl@pitrich.com>
 in part based on a project (c) 2013 Ed Simmons <ed@estechnical.co.uk>
-
+___
 
 **Post action shot**
 
-![CycleWithOverflow] | ![Warning]
------------- | -------------
-
-
-## Warning: This project operates with possibly lethal mains voltage. If you are unsure what to do, don't do it and get help from an experienced tinkerer with professional training.
-
+![CycleWithOverflow] 
+##**Warning**
+![Warning]
+### Warning: This project operates with possibly lethal mains voltage. If you are unsure what to do, don't do it and get help from an experienced tinkerer with professional training.
+___
 
 **Completed build**
 
-![Completed1] | ![Completed2]
------------- | -------------
+![Completed1] 
+
+![Completed2]
 
 
 Introduction
-====================
+========
 
 This Reflow Oven Controller relies on an [Arduino Pro Micro], which is similar to the Leonardo and easily obtainable on eb*y for less than $10, plus my custom shield, which is actually more like a motherboard.
 
@@ -53,7 +53,9 @@ As I believe it is not wise to have a mess of wiring and tiny breakout-boards fo
 The hardware can be found in the [folder hardware], including the Eagle schematics and PCB layout files. It should fit the freemium version of Eagle. Here are preview images:
 
 ![PCB][ImgPCB]
+[High Quality PCB]
 ![Schematic][ImgSCH]
+[High Quality Schematics]
 
 From my manufacturing run, I have some spare PCBs and parts. They are available at my [tindie store].
 
@@ -68,26 +70,56 @@ But for testing, I've added an additional timer to simulate the zero-crossings, 
 Errata and construction infos
 ========
 
-Issue | Notes
------------- | -------------
-Unfortunately, a trace is missing on the production PCB, you need to solder a bridge. The PCB eagle source has been corrected. | ![Missing Trace][ImgMissingTrace]
-I've used a switch mode power supply which induces a lot of noise on the power supply, causing the MAX31855 to be quite eratic, reporting VCC and GND shots where there are none. Use a linear power supply if you can. | I've added a LC-filter (100µH + 1000µF/100n) + ferrite beads between the PSU and the controller PCB.
+####Issues 
 
+Unfortunately, a trace is missing on the production PCB, you need to solder a bridge. The PCB eagle source has been corrected.
+
+
+![Missing Trace][ImgMissingTrace]
+
+___
+I've used a switch mode power supply which induces a lot of noise on the power supply, causing the MAX31855 to be quite eratic, reporting VCC and GND shots where there are none. Use a linear power supply if you can.
+
++ I've added a LC-filter (100µH + 1000µF/100n) + ferrite beads between the PSU and the controller PCB.
+___
 
 Screenshots and usage information
 ========
+![CycleWithOverflow]  
 
-Image | Information
------------- | -------------
-![CycleWithOverflow] | *Display after a cylcle has been completed. The blue line is the setpoint, the red line the actual temperature measured by the thermocouple. Note that the graph wraps around automatically. 'Sp' is the current setpoint calculated by the PID loop. In the lower line there are: Current heater and fan outputs, both in percent, and the current temperature rise or drop rate in °C per second. The graph will draw orientation lines every 50°C up to the peak temperature set in the selected profile.*
-![MenuDefault] | *The main menu can be navigated by rotating the encoder (sic!). Clicking enters the menu item, or navigates to the submenu. Doubleclick moves up or back or exits the menu item.*
-![FanSpeedEdit] | *To edit a setting, click once to enter edit mode (red cursor), then rotate to change the value, click again to save. Doubleclick will exit without saving.*
-![MenuEditProfile] | -
-![ProfileSettings] | *Typical solder profile settings...*
-![ProfileSettingsEdit] | *These parameters can be easily edited using the encoder as described above.*
-![MenuLoadProfile] | *Up to 30 Profiles can be loaded and saved. You have to do this manually, so that you can have 'save-as' functionality without overwriting existing profiles.*
-![PIDValues] | *Current pid values for my 1300W 20$ toaster oven.*
-![PIDValuesEdit] | *Editing is simple, like above. Note that, unlike with the profile settings, the PID values will be automatically stored to EEPROM when you exit the submenu by doubleclicking.*
+Display after a cylcle has been completed. The blue line is the setpoint, the red line the actual temperature measured by the thermocouple. Note that the graph wraps around automatically. 'Sp' is the current setpoint calculated by the PID loop. In the lower line there are: Current heater and fan outputs, both in percent, and the current temperature rise or drop rate in °C per second. The graph will draw orientation lines every 50°C up to the peak temperature set in the selected profile.
+___
+![MenuDefault] 
+
+The main menu can be navigated by rotating the encoder (sic!). Clicking enters the menu item, or navigates to the submenu. Doubleclick moves up or back or exits the menu item.
+
+___
+![FanSpeedEdit] 
+
+To edit a setting, click once to enter edit mode (red cursor), then rotate to change the value, click again to save. Doubleclick will exit without saving.
+___
+![MenuEditProfile] 
+___
+![ProfileSettings] 
+
+Typical solder profile settings.
+___
+![ProfileSettingsEdit] 
+
+These parameters can be easily edited using the encoder as described above.
+___
+![MenuLoadProfile] 
+
+Up to 30 Profiles can be loaded and saved. You have to do this manually, so that you can have 'save-as' functionality without overwriting existing profiles.
+___
+![PIDValues] 
+
+Current pid values for my 1300W 20$ toaster oven.
+___
+![PIDValuesEdit] 
+
+Editing is simple, like above. Note that, unlike with the profile settings, the PID values will be automatically stored to EEPROM when you exit the submenu by doubleclicking.
+___
 
 
 Obtaining the source code
@@ -153,13 +185,13 @@ Things to note
 
 Ideas and todo
 ====================
-* Optimize code size so that more features can fit
-* Clamp values for parameters to reasonalbe ranges
-* Add scrollbar (sample implementation in the demo for [Menu]
-* Separate PID configuration for each process step
-* try to make the display faster, it is very slow
-* Named profiles
-* Rewrite [Menu] so that is uses callback objects instead of spaghetti-callbacks
+- [ ] Optimize code size so that more features can fit
+- [ ] Clamp values for parameters to reasonalbe ranges
+- [ ] Add scrollbar (sample implementation in the demo for [Menu]
+- [ ] Separate PID configuration for each process step
+- [ ] try to make the display faster, it is very slow
+- [ ] Named profiles
+- [ ] Rewrite [Menu] so that is uses callback objects instead of spaghetti-callbacks
 
 Licensing
 ====================
@@ -205,7 +237,7 @@ THE SOFTWARE.
 [Sharp S202S01]:http://sharp-world.com/products/device/lineup/data/pdf/datasheet/s102s01_e.pdf
 [Zero crossing]:http://en.wikipedia.org/wiki/Zero_crossing
 [TimerOne]:http://playground.arduino.cc/Code/Timer1
-[TimerThree]:http://playground.arduino.cc/Code/Timer1
+[TimerThree]:https://github.com/PaulStoffregen/TimerThree
 [Adafruit_ST7735]:https://github.com/adafruit/Adafruit-ST7735-Library
 [Adafruit_GFX]:https://github.com/adafruit/Adafruit-GFX-Library
 [Adafruit_GFX-pit]:https://github.com/0xPIT/Adafruit-ST7735-Library
@@ -214,20 +246,22 @@ THE SOFTWARE.
 [Arduino Pro Micro]:https://www.sparkfun.com/products/12640
 [tindie store]:https://www.tindie.com/products/0xPIT/reflow-oven-controller-motherboard-for-arduino-pro-micro/
 
-[CycleWithOverflow]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/CycleWithOverflow.jpg
-[FanSpeedEdit]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/FanSpeedEdit.jpg
-[MenuDefault]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/Menu.jpg
-[MenuLoadProfile]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/MenuLoadProfile.jpg
-[MenuEditProfile]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/MenuEditProfile.jpg
-[PIDValuesEdit]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/PIDValuesEdit.jpg
-[ProfileSettings]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/ProfileSettings.jpg
-[PIDValues]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/PIDValues.jpg
-[ProfileSettingsEdit]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/ProfileSettingsEdit.jpg
+[CycleWithOverflow]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/CycleWithOverflow.jpg
+[FanSpeedEdit]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/FanSpeedEdit.jpg
+[MenuDefault]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/Menu.jpg
+[MenuLoadProfile]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/MenuLoadProfile.jpg
+[MenuEditProfile]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/MenuEditProfile.jpg
+[PIDValuesEdit]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/PIDValuesEdit.jpg
+[ProfileSettings]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/ProfileSettings.jpg
+[PIDValues]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/PIDValues.jpg
+[ProfileSettingsEdit]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/ProfileSettingsEdit.jpg
 
-[Warning]:http://www.proshieldsafetysigns.co.uk/signs/59793_signs.jpg
-[ImgPCB]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/hardware/v0.2.brd.preview.png
-[ImgSCH]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/hardware/v0.2.sch.preview.png
+[Warning]:http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/High_voltage_warning.svg/286px-High_voltage_warning.svg.png
+[ImgPCB]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/v0.2.brd.preview.png
+[ImgSCH]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/v0.2.sch.preview.png
+[High Quality PCB]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.brd.preview.png
+[High Quality Schematics]::https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.sch.preview.png
 
-[ImgMissingTrace]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/MissingTrace.jpg
-[Completed1]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/Completed1.jpg
-[Completed2]:https://raw.githubusercontent.com/0xPIT/reflowOvenController/master/images/Completed2.jpg
+[ImgMissingTrace]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/MissingTrace.jpg
+[Completed1]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/Completed1.jpg
+[Completed2]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/Completed2.jpg
