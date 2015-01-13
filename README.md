@@ -53,9 +53,10 @@ As I believe it is not wise to have a mess of wiring and tiny breakout-boards fo
 The hardware can be found in the [folder hardware], including the Eagle schematics and PCB layout files. It should fit the freemium version of Eagle. Here are preview images:
 
 ![PCB][ImgPCB]
-[High Quality PCB]
+[High Quality Image - Layout]
+___
 ![Schematic][ImgSCH]
-[High Quality Schematics]
+[High Quality Image - Schematic]
 
 From my manufacturing run, I have some spare PCBs and parts. They are available at my [tindie store].
 
@@ -259,8 +260,8 @@ THE SOFTWARE.
 [Warning]:http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/High_voltage_warning.svg/286px-High_voltage_warning.svg.png
 [ImgPCB]:https://raw.githubusercontent.com/mrred2k/ReflowOvenController/master/hardware/ReflowController_kp.v2.1.brd.preview_small.jpg
 [ImgSCH]:https://raw.githubusercontent.com/mrred2k/ReflowOvenController/master/hardware/ReflowController_kp.v2.1.sch.preview_small.jpg
-[High Quality PCB]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/ReflowController_kp.v2.1.brd.preview.png
-[High Quality Schematics]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.sch.preview.png
+[High Quality Image - Layout]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/ReflowController_kp.v2.1.brd.preview.png
+[High Quality Image - Schematic]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.sch.preview.png
 
 [ImgMissingTrace]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/MissingTrace.jpg
 [Completed1]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/Completed1.jpg
