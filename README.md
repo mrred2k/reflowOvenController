@@ -257,10 +257,10 @@ THE SOFTWARE.
 [ProfileSettingsEdit]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/ProfileSettingsEdit.jpg
 
 [Warning]:http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/High_voltage_warning.svg/286px-High_voltage_warning.svg.png
-[ImgPCB]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/v0.2.brd.preview.png
-[ImgSCH]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/v0.2.sch.preview.png
+[ImgPCB]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/v0.2.brd.preview_small.png
+[ImgSCH]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/v0.2.sch.preview_small.png
 [High Quality PCB]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.brd.preview.png
-[High Quality Schematics]::https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.sch.preview.png
+[High Quality Schematics]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/hardware/reflowController_kp.v2.1.sch.preview.png
 
 [ImgMissingTrace]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/MissingTrace.jpg
 [Completed1]:https://raw.githubusercontent.com/mrred2k/reflowOvenController/master/images/Completed1.jpg
