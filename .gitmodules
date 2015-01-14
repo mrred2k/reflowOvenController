@@ -5,13 +5,13 @@
 [submodule "libraries/Menu"]
         path = libraries/Menu
         url = git@github.com:0xPIT/menu.git
-[submodule "libraries/Adafruit_GFX"]
-        path = libraries/Adafruit_GFX
-        url = git@github.com:zero-signal/Adafruit_GFX.git
-[submodule "libraries/TimerOne"]
-        path = libraries/TimerOne
-        url = git@github.com:PaulStoffregen/TimerOne.git
-[submodule "libraries/TimerThree"]
-        path = libraries/TimerThree
-        url = git@github.com:PaulStoffregen/TimerThree.git
 
+[submodule "libraries/Adafruit_GFX"]
+	path = libraries/Adafruit_GFX
+	url = https://github.com/zero-signal/Adafruit_GFX.git
+[submodule "libraries/TimerOne"]
+	path = libraries/TimerOne
+	url = https://github.com/PaulStoffregen/TimerOne.git
+[submodule "libraries/TimerThree"]
+	path = libraries/TimerThree
+	url = https://github.com/PaulStoffregen/TimerThree.git
