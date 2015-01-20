@@ -45,8 +45,14 @@ ___
 
 Introduction
 ========
+There are two versions of the Reflow Oven Controller. Both schematics and pcb's are avaible in the Hardware-folder. 
 
-This Reflow Oven Controller relies on an [Arduino Pro Micro], which is similar to the Leonardo and easily obtainable on eb*y for less than $10, plus my custom shield, which is actually more like a motherboard.
+kp's (aka 0xpit)-Version uses Solid-State-relays on the pcb and is only compatible with the Arduino Pro Micro. 
+
+Trueserves-Version has external SSRs and is compatible with the Arduino Pro Micro, Mini and Nano 3.0. , resulting in a smaller pcb.
+
+The following instruction and photos are all of the 0xPit - Controller.
+This Reflow Oven Controller relies on an [Arduino Pro Micro], which is similar to the Leonardo and easily obtainable on eb*y for less than $5, plus my custom shield, which is actually more like a motherboard.
 
 As I believe it is not wise to have a mess of wiring and tiny breakout-boards for operating mains powered equipment, I've decided to design custom board with easily obtainable components.
 
