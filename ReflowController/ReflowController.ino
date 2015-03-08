@@ -103,9 +103,9 @@ const char *ver = "3.1_tr01";
 #define TCOUPLE1_CS  3
 #define TCOUPLE2_CS  4
 
-// SSR
-#define PIN_HEATER   0 // SSR output for the heater
-#define PIN_FAN      1 // SSR output for the fan
+#define PIN_HEATER   0 // SSR for the heater
+#define PIN_FAN      1 // SSR for the fan
+#define PIN_BEEPER   5 // Beeper Out
 
 // ZX Circuit
 #define PIN_ZX       2 // pin for zero crossing detector
@@ -781,7 +781,7 @@ void abortWithError(int error)
     printAtPos(FS("during "), TFT_LEFTCOL, 45);
     tft.print((error == 10) ? F("heating") : F("cooling"));
   }
-
+  tone(PIN_BEEPER,1760,2000);  //Error Beep
   while (1) { //  stop
     ;
   }
@@ -1250,7 +1250,9 @@ void setup()
 #endif
 
   delay(1000);
-
+  
+  tone(PIN_BEEPER,1760,100);
+  
   menuExit(Menu::actionDisplay); // reset to initial state
   Engine.navigate(&miCycleStart);
   currentState = Settings;
@@ -1547,13 +1549,21 @@ void loop(void)
           stateChanged = false;
           PID.SetControllerDirection(REVERSE);
           PID.SetTunings(fanPID.Kp, fanPID.Ki, fanPID.Kd);
+
           Setpoint = IDLE_SAFE_TEMP;
+
+          tone(PIN_BEEPER,1760,1000);  // Beep as a reminder that CoolDown starts (and maybe open up the oven door for fast enough cooldown)
         }
 
         if (Input < (IDLE_SAFE_TEMP + 5)) {
           currentState = Complete;
           PID.SetMode(MANUAL);
           Output = 0;
+          tone(PIN_BEEPER,1760,500);  //End Beep
+          delay(500);
+          tone(PIN_BEEPER,1760,500);
+          delay(500);
+          tone(PIN_BEEPER,1760,1500);
         }
 
 #ifdef PIDTUNE
