@@ -160,7 +160,6 @@ On a Mac, this is how you link the submodule libraries to your Arduino libraries
     ln -s ~/Development/<reflow source code>/libraries
 
 My code uses [TimerOne] for basic timing, for the 1.8" TFT I've used [Adafruit_ST7735], which requires the Adafruit_GFX libary. The screen uses the enhanced capabilities of [Adafruit_GFX-zerosignal]. I **strongly suggest** to use the  of [Adafruit_GFX-zerosignal], as it is required  for trueserve's Version and works with both versions.
-    
 
 For the user interface you require my own [Menu] and [ClickEncoder] libraries, which are included as submodules.
 
