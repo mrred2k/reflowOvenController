@@ -4,14 +4,13 @@ Reflow Oven Controller
 
 **News**
 
-* Some PCBs & parts are available on Tindie.
-
-<a href="https://www.tindie.com/stores/0xPIT/?ref=offsite_badges&utm_source=sellers_0xPIT&utm_medium=badges&utm_campaign=badge_small"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-smalls.png" alt="I sell on Tindie" height="40"></a>
+*We have build a new Reflowoven for our Hackerspace and you can visit us at
+[Attraktor Wiki-Reflow]
 
 
 **Arduino-based reflow oven controller with:**
 * [PID] loop control
-* [Wave Packet] and [Phase Fired] control for AC outputs
+* [Wave Packet] and [Phase Fired] control for two AC outputs
 * graphic TFT LC-Display, drawing the temperature curves
   * using an [Adafruit 1.8" TFT] or derivate display
 * solely controlled using a cheap rotary encoder and its single button
@@ -228,7 +227,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ```
 
-
+[Attraktor Wiki-Reflow]:https://wiki.attraktor.org/Reflowofen
 [PID Autotune]:https://github.com/br3ttb/Arduino-PID-AutoTune-Library
 [Submodule Cheat Sheet]:http://blog.jacius.info/git-submodule-cheat-sheet/
 [ESTechnical]:http://www.estechnical.co.uk

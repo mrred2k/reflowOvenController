@@ -6,13 +6,13 @@
 // ----------------------------------------------------------------------------
 
 // --CONFIGURATION-------------------------------------------------------------
-#define BOARD_TYPE          1   // 0 = kp's design, 1 = true's design
-#define LINE_FREQ           60  // 50 or 60 supported
+#define BOARD_TYPE          0   // 0 = kp's design, 1 = true's design
+#define LINE_FREQ           50  // 50 or 60 supported
 
-#define ENC_STEPS_PER_NOTCH 4   // steps per notch of the rotary encoder. to cal: set to 1, turn knob slowly, count
+#define ENC_STEPS_PER_NOTCH 2   // steps per notch of the rotary encoder. to cal: set to 1, turn knob slowly, count
 
-#define LCD_ROTATE          2   // 0 or 2 = vertical, 1 or 3 = horizontal
-#define LCD_TABTYPE         INITR_BLACKTAB   // lcd type, usually INITR_RED/GREEN/BLACKTAB
+#define LCD_ROTATE          1   // 0 or 2 = vertical, 1 or 3 = horizontal
+#define LCD_TABTYPE         INITR_REDTAB   // lcd type, usually INITR_RED/GREEN/BLACKTAB
 
 #define NAMED_PROFILES      1   // 1 = allow named profiles, 0 = numbers only
 
@@ -89,8 +89,8 @@ const char *ver = "3.1_tr01";
 // 1.8" TFT via SPI -> breadboard
 #if   (BOARD_TYPE == 0)  // kp's design
  #define LCD_CS       10
- #define LCD_DC       9
- #define LCD_RST      8
+ #define LCD_DC       8
+ #define LCD_RST      9
 #elif (BOARD_TYPE == 1)  // true's design
  #define LCD_CS       6
  #define LCD_DC       9
@@ -1309,6 +1309,7 @@ uint8_t thermocoupleErrorCount;
 // --MAINLINE------------------------------------------------------------------
 void loop(void) 
 {
+ 
   bool menuUpdateLocal = false;
   
   // --------------------------------------------------------------------------
