@@ -7,11 +7,14 @@
         url = git@github.com:0xPIT/menu.git
 
 [submodule "libraries/Adafruit_GFX"]
-	path = libraries/Adafruit_GFX
-	url = https://github.com/zero-signal/Adafruit_GFX.git
+        path = libraries/Adafruit_GFX
+        url = https://github.com/zero-signal/Adafruit_GFX.git
 [submodule "libraries/TimerOne"]
-	path = libraries/TimerOne
-	url = https://github.com/PaulStoffregen/TimerOne.git
+        path = libraries/TimerOne
+        url = https://github.com/PaulStoffregen/TimerOne.git
 [submodule "libraries/TimerThree"]
-	path = libraries/TimerThree
-	url = https://github.com/PaulStoffregen/TimerThree.git
+        path = libraries/TimerThree
+        url = https://github.com/PaulStoffregen/TimerThree.git
+[submodule "libraries/Newtone"]
+        path = libraries/NewTone
+        url = https://github.com/wlindley/Arduino/tree/master/libraries/NewTone

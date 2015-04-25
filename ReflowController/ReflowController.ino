@@ -22,8 +22,9 @@
 //#define GRAPH_HAS_TEMPS     1   // unset = nothing, set = print temperature values on right edge of graph line. +74bytes
 //#define GRAPH_STOP_ON_DONE  1   // unset = keep looping graph after done, set = stop timer/graphing after idle safe temp reached. +42bytes
 
-//#define FAKE_HW             1
-//#define PIDTUNE             1   // autotune wouldn't fit in the 28k available on my arduino pro micro.
+//#define BEEPER            1  //enables the beeper feature (~468Bytes wont fit on the f**ing small pro micro)
+//#define FAKE_HW             1 //Use this if you are trying the hardware without mains connection.
+//#define PIDTUNE             1   // autotune wouldn't fit in the 28k available on my arduino pro micro. Faulty at the moment. Maybe kick it out as it is not very usable anyway.
 
 // run a calibration loop that measures how many timer ticks occur between 2 zero corssings
 // FIXME: does not work reliably at the moment, so a oscilloscope-determined value is used.
@@ -46,6 +47,9 @@
 #include <PID_v1.h>
 #include <TimerOne.h>
 
+#ifdef BEEPER
+  #include <NewTone.h>
+#endif
 
 #ifdef FAKE_HW
  #ifdef __AVR_ATmega32U4__
@@ -105,6 +109,8 @@ const char *ver = "3.1_tr01";
 
 #define PIN_HEATER   0 // SSR for the heater
 #define PIN_FAN      1 // SSR for the fan
+
+//External Beeper
 #define PIN_BEEPER   5 // Beeper Out
 
 // ZX Circuit
@@ -781,10 +787,13 @@ void abortWithError(int error)
     printAtPos(FS("during "), TFT_LEFTCOL, 45);
     tft.print((error == 10) ? F("heating") : F("cooling"));
   }
-  tone(PIN_BEEPER,1760,2000);  //Error Beep
+  #ifdef BEEPER
+  NewTone(PIN_BEEPER,1760,2000);  //Error Beep
+  #endif
   while (1) { //  stop
     ;
   }
+  
 }
 
 
@@ -1250,9 +1259,9 @@ void setup()
 #endif
 
   delay(1000);
-  
-  tone(PIN_BEEPER,1760,100);
-  
+  #ifdef BEEPER
+  NewTone(PIN_BEEPER,1760,100);
+  #endif
   menuExit(Menu::actionDisplay); // reset to initial state
   Engine.navigate(&miCycleStart);
   currentState = Settings;
@@ -1551,19 +1560,22 @@ void loop(void)
           PID.SetTunings(fanPID.Kp, fanPID.Ki, fanPID.Kd);
 
           Setpoint = IDLE_SAFE_TEMP;
-
-          tone(PIN_BEEPER,1760,1000);  // Beep as a reminder that CoolDown starts (and maybe open up the oven door for fast enough cooldown)
+          #ifdef BEEPER
+          NewTone(PIN_BEEPER,1760,1000);  // Beep as a reminder that CoolDown starts (and maybe open up the oven door for fast enough cooldown)
+          #endif
         }
 
         if (Input < (IDLE_SAFE_TEMP + 5)) {
           currentState = Complete;
           PID.SetMode(MANUAL);
           Output = 0;
-          tone(PIN_BEEPER,1760,500);  //End Beep
+          #ifdef BEEPER
+          NewTone(PIN_BEEPER,1760,500);  //End Beep
           delay(500);
-          tone(PIN_BEEPER,1760,500);
+          NewTone(PIN_BEEPER,1760,500);
           delay(500);
-          tone(PIN_BEEPER,1760,1500);
+          NewTone(PIN_BEEPER,1760,1500);
+          #endif
         }
 
 #ifdef PIDTUNE

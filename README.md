@@ -4,6 +4,9 @@ Reflow Oven Controller
 
 **News**
 
+*Added a buzzer feature to Pin 5 - to avoid a interrupt error with the hardware timers
+your have to use the [NewTone] Libary
+
 *We have build a new Reflowoven for our Hackerspace and you can visit us at
 [Attraktor Wiki-Reflow]
 
@@ -21,6 +24,7 @@ Reflow Oven Controller
   * measure two temperatures independently
   * drive two AC loads, such as heater and fan
 * could also be used for slow coockers
+* optional buzzer on error,finish,start
 * *Please Note*: Requires Arduino IDE 1.5.x or newer
 
 (c) 2014 Karl Pitrich <karl@pitrich.com>
@@ -133,7 +137,7 @@ Obtaining the source code
 
 Get the code using `git`.
 
-	git clone https://github.com/estechnical/reflowOvenController.git
+        git clone https://github.com/estechnical/reflowOvenController.git
 
 or [download a Snapshot].
 
@@ -162,6 +166,8 @@ On a Mac, this is how you link the submodule libraries to your Arduino libraries
 My code uses [TimerOne] for basic timing, for the 1.8" TFT I've used [Adafruit_ST7735], which requires the Adafruit_GFX libary. The screen uses the enhanced capabilities of [Adafruit_GFX-zerosignal]. I **strongly suggest** to use the  of [Adafruit_GFX-zerosignal], as it is required  for trueserve's Version and works with both versions.
 
 For the user interface you require my own [Menu] and [ClickEncoder] libraries, which are included as submodules.
+
+Because the hardware timers are used for the zero crossings we have to use the [Newtone] libary which is smaller and fixes the problem.
 
 All other libraries need to be downloaded and installed.
 
@@ -244,6 +250,7 @@ THE SOFTWARE.
 [Zero crossing]:http://en.wikipedia.org/wiki/Zero_crossing
 [TimerOne]:http://playground.arduino.cc/Code/Timer1
 [TimerThree]:https://github.com/PaulStoffregen/TimerThree
+[NewTone]:https://github.com/wlindley/Arduino/tree/master/libraries/NewTone
 [Adafruit_ST7735]:https://github.com/adafruit/Adafruit-ST7735-Library
 [Adafruit_GFX]:https://github.com/adafruit/Adafruit-GFX-Library
 [Adafruit_GFX-zerosignal]:https://github.com/zero-signal/Adafruit_GFX
